@@ -1,0 +1,18 @@
+---
+# markdownlint config — see https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+default: true
+
+# Long lines are fine in prose/READMEs; don't fight wrapping.
+MD013: false
+
+# Allow raw HTML (occasionally handy in READMEs, e.g. badges/details blocks).
+MD033: false
+
+# Allow duplicate heading text across different sections (e.g. multiple
+# "### Running" headers in different tool sections).
+MD024:
+  siblings_only: true
+
+# Fenced code blocks must declare a language, except where content is
+# genuinely just plain text/output.
+MD040: true
