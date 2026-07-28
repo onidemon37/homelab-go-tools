@@ -1,0 +1,6 @@
+.git
+bin
+snapshots
+*.snap
+.golangci.yaml
+README.md

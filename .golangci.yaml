@@ -1,0 +1,37 @@
+---
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck      # unchecked error returns
+    - govet         # go vet, folded into the same report as everything else
+    - ineffassign   # ineffective assignments
+    - staticcheck   # bugs, deprecated APIs, simplifications (includes old gosimple checks)
+    - unused        # unused vars/funcs/consts
+    - misspell      # comment/string typos
+    - bodyclose     # unclosed HTTP response bodies (cheap to keep on even if unused today)
+  settings:
+    errcheck:
+      # Deferred Close() calls are a common, low-risk skip; keep the
+      # linter strict everywhere else.
+      exclude-functions:
+        - (*os.File).Close
+  exclusions:
+    paths:
+      - bin
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    paths:
+      - bin
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
