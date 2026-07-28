@@ -51,15 +51,19 @@ unseal keys to each.
 Keys are resolved in this order:
 
 1. **Combined list** — one env var, comma-separated:
-   ```bash
-   export VAULT_UNSEAL_KEYS="key1,key2,key3"
-   ```
+
+```bash
+export VAULT_UNSEAL_KEYS="key1,key2,key3"
+```
+
 2. **Individual indexed vars**:
-   ```bash
-   export VAULT_UNSEAL_KEY_1="key1"
-   export VAULT_UNSEAL_KEY_2="key2"
-   export VAULT_UNSEAL_KEY_3="key3"
-   ```
+
+```bash
+export VAULT_UNSEAL_KEY_1="key1"
+export VAULT_UNSEAL_KEY_2="key2"
+export VAULT_UNSEAL_KEY_3="key3"
+```
+
 3. **Interactive hidden prompt** — anything not covered by env vars above
    gets prompted for at runtime (input hidden, like `read -s`).
 
@@ -101,12 +105,14 @@ put on the command line, so it doesn't show up in `ps` output inside the pod.
 
 1. `mkdir cmd/my-tool && touch cmd/my-tool/main.go`
 2. Import shared packages as needed:
-   ```go
-   import (
-       "github.com/edy/homelab-go-tools/internal/secrets"
-       "github.com/edy/homelab-go-tools/internal/kexec"
-   )
-   ```
+
+```go
+import (
+    "github.com/edy/homelab-go-tools/internal/secrets"
+    "github.com/edy/homelab-go-tools/internal/kexec"
+)
+```
+
 3. `go run ./cmd/my-tool` — no other wiring needed; `make build` and the
    `cmd/*` wildcard in the Makefile will pick it up automatically.
 
