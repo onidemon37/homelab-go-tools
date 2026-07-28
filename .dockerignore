@@ -2,5 +2,5 @@
 bin
 snapshots
 *.snap
-.golangci.yml
+.golangci.yaml
 README.md
