@@ -56,7 +56,7 @@ Keys are resolved in this order:
 export VAULT_UNSEAL_KEYS="key1,key2,key3"
 ```
 
-2. **Individual indexed vars**:
+1. **Individual indexed vars**:
 
 ```bash
 export VAULT_UNSEAL_KEY_1="key1"
@@ -64,7 +64,7 @@ export VAULT_UNSEAL_KEY_2="key2"
 export VAULT_UNSEAL_KEY_3="key3"
 ```
 
-3. **Interactive hidden prompt** — anything not covered by env vars above
+1. **Interactive hidden prompt** — anything not covered by env vars above
    gets prompted for at runtime (input hidden, like `read -s`).
 
 You can mix and match — e.g. set key 1 and 2 via env, and get prompted just
@@ -104,7 +104,7 @@ put on the command line, so it doesn't show up in `ps` output inside the pod.
 ## Adding a new tool
 
 1. `mkdir cmd/my-tool && touch cmd/my-tool/main.go`
-2. Import shared packages as needed:
+1. Import shared packages as needed:
 
 ```go
 import (
@@ -113,7 +113,7 @@ import (
 )
 ```
 
-3. `go run ./cmd/my-tool` — no other wiring needed; `make build` and the
+1. `go run ./cmd/my-tool` — no other wiring needed; `make build` and the
    `cmd/*` wildcard in the Makefile will pick it up automatically.
 
 `secrets.ResolveN` and `secrets.StringsOrEnv` work for any tool needing
